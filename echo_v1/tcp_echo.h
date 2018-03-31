@@ -27,4 +27,5 @@
 })
 
 void strecho(int sockfd);
-
+void str_cli(int fd, int sockfd);
+int read_line(int fd, char *buf, int num);

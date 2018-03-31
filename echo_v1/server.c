@@ -46,8 +46,10 @@ strecho(int sockfd) {
 	int n;
 
 again:
-	while ((n = read(sockfd, buff, BUFF_SIZE)) > 0)
+	while ((n = read(sockfd, buff, BUFF_SIZE)) > 0) {
+	    write(STDOUT_FILENO, buff, n);
 	    write(sockfd, buff, n);
+	}
 	
 	if (n < 0 && errno == EINTR)
 	    goto again;
